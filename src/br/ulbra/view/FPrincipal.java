@@ -348,7 +348,7 @@ public class FPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btGerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarActionPerformed
-        double sL, salB, salHE, salF, quantH, valorH, filhos, quantHE, iNSS, iR;
+        double sL, salB, salHE, salF, quantH, valorH, filhos,quantHE, iNSS, iR;
 
         lbNomeR.setText(txtNome.getText());
         lbHorasR.setText(txtHoras.getText());
