@@ -61,18 +61,12 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lbNome" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="lbValorH" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="txtValorH" min="-2" pref="85" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="lbValorH" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtValorH" min="-2" pref="85" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lbFilhos" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtFilhos" min="-2" pref="105" max="-2" attributes="0"/>
@@ -208,6 +202,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Gerar folha"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGerarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="lbClean">
           <Properties>
@@ -219,6 +216,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbCleanActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
@@ -238,11 +238,11 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="lbQuantH" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="lbHER" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <Component id="lbHorasR" min="-2" pref="65" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="lbQuantHE" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="19" max="32767" attributes="0"/>
-                                      <Component id="lbHorasR" min="-2" pref="53" max="-2" attributes="0"/>
+                                      <Component id="lbHER" min="-2" pref="53" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -321,8 +321,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbQuantH" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbQuantHE" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbHER" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbHorasR" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbHER" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -457,7 +457,7 @@
                 <Property name="text" type="java.lang.String" value="???"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lbHER">
+            <Component class="javax.swing.JLabel" name="lbHorasR">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria Math" size="14" style="1"/>
@@ -465,7 +465,7 @@
                 <Property name="text" type="java.lang.String" value="???"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lbHorasR">
+            <Component class="javax.swing.JLabel" name="lbHER">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria Math" size="14" style="1"/>

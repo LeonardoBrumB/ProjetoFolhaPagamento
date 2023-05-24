@@ -55,8 +55,8 @@ public class FPrincipal extends javax.swing.JFrame {
         lbRSalarioB = new javax.swing.JLabel();
         lbVHER = new javax.swing.JLabel();
         lbSalFR = new javax.swing.JLabel();
-        lbHER = new javax.swing.JLabel();
         lbHorasR = new javax.swing.JLabel();
+        lbHER = new javax.swing.JLabel();
         lbINSSR = new javax.swing.JLabel();
         lbNomeR = new javax.swing.JLabel();
         lbRIR = new javax.swing.JLabel();
@@ -87,10 +87,20 @@ public class FPrincipal extends javax.swing.JFrame {
         btGerar.setBackground(new java.awt.Color(31, 241, 38));
         btGerar.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         btGerar.setText("Gerar folha");
+        btGerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerarActionPerformed(evt);
+            }
+        });
 
         lbClean.setBackground(new java.awt.Color(219, 33, 33));
         lbClean.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         lbClean.setText("Limpar");
+        lbClean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lbCleanActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(76, 219, 245));
 
@@ -133,11 +143,11 @@ public class FPrincipal extends javax.swing.JFrame {
         lbSalFR.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         lbSalFR.setText("???");
 
-        lbHER.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        lbHER.setText("???");
-
         lbHorasR.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         lbHorasR.setText("???");
+
+        lbHER.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        lbHER.setText("???");
 
         lbINSSR.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         lbINSSR.setText("???");
@@ -163,11 +173,11 @@ public class FPrincipal extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lbQuantH)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbHER, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbHorasR, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lbQuantHE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                                .addComponent(lbHorasR, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbHER, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(lbVHE)
@@ -225,8 +235,8 @@ public class FPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbQuantH)
                     .addComponent(lbQuantHE)
-                    .addComponent(lbHER)
-                    .addComponent(lbHorasR))
+                    .addComponent(lbHorasR)
+                    .addComponent(lbHER))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbVHE)
@@ -269,15 +279,11 @@ public class FPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbNome)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addComponent(lbValorH)
-                                        .addGap(32, 32, 32))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtValorH, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)))
-                                .addGap(41, 41, 41)
+                                    .addComponent(lbValorH)
+                                    .addComponent(txtValorH, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(61, 61, 61)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbFilhos)
                                     .addComponent(txtFilhos, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -340,6 +346,73 @@ public class FPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btGerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarActionPerformed
+        double sL, salB, salHE, salF, quantH, valorH, filhos, quantHE, iNSS, iR;
+
+        lbNomeR.setText(txtNome.getText());
+        lbHorasR.setText(txtHoras.getText());
+        lbHER.setText(txtHE.getText());
+        quantH = Double.parseDouble(txtHoras.getText());
+        valorH = Double.parseDouble(txtValorH.getText());
+        filhos = Double.parseDouble(txtFilhos.getText());
+        quantHE = Double.parseDouble(txtHE.getText());
+
+        salB = quantH * valorH;
+        salHE = quantHE * (valorH * 1.5);
+        salF = filhos * 15;
+
+        lbRSalarioB.setText(String.valueOf(salB));
+        lbVHER.setText(String.valueOf(salHE));
+        lbSalFR.setText(String.valueOf(salF));
+
+        //INSS
+        if (salB <= 1320.00) {
+            iNSS = salB * 0.075;
+            lbINSSR.setText(String.valueOf(iNSS));
+        } else if (salB > 1320.00 && salB <= 2571.29) {
+            iNSS = salB * 0.09;
+            lbINSSR.setText(String.valueOf(iNSS));
+        } else if (salB > 2571.29 && salB <= 3856.94) {
+            iNSS = salB * 0.12;
+            lbINSSR.setText(String.valueOf(iNSS));
+        } else {
+            iNSS = salB * 0.14;
+            lbINSSR.setText(String.valueOf(iNSS));
+        }
+
+        //IR
+        if (salB < 1903.09) {
+            iR = 0;
+            lbRIR.setText(String.valueOf(iR));
+        } else if (salB >= 1903.09 && salB <= 2826.65) {
+            iR = salB * 0.075;
+            lbRIR.setText(String.valueOf(iR));
+        } else if (salB > 2826.65 && salB <= 3751.05) {
+            iR = salB * 0.15;
+            lbRIR.setText(String.valueOf(iR));
+        } else if (salB > 3751.05 && salB <= 4663.68) {
+            iR = salB * 0.225;
+            lbRIR.setText(String.valueOf(iR));
+        } else {
+            iR = salB * 0.275;
+            lbRIR.setText(String.valueOf(iR));
+        }
+
+        //Salário líquido
+        sL = salB + salF + salHE - iNSS - iR;
+
+        lbRSalL.setText(String.valueOf(sL));
+
+    }//GEN-LAST:event_btGerarActionPerformed
+
+    private void lbCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbCleanActionPerformed
+        txtNome.setText(null);
+        txtHoras.setText(null);
+        txtValorH.setText(null);
+        txtFilhos.setText(null);
+        txtHE.setText(null);
+    }//GEN-LAST:event_lbCleanActionPerformed
 
     /**
      * @param args the command line arguments
